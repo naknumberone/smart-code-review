@@ -1,0 +1,33 @@
+[project]
+name = "review-py"
+version = "1.0.0"
+description = "Code review service with LLM and semantic search"
+requires-python = ">=3.10"
+dependencies = []
+
+[tool.pyright]
+include = ["app"]
+exclude = ["**/node_modules", "**/__pycache__", "**/.*", "venv"]
+typeCheckingMode = "basic"
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.venv
+  | venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
