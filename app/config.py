@@ -30,3 +30,4 @@ class Config(BaseSettings):
     # Настройки ревью
     prompt_budget_chars: int = Field(default=50000)
     finalize_batch_size: int = Field(default=4)
+    max_stages: int = Field(default=0)  # 0 = без лимита

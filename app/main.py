@@ -77,7 +77,13 @@ class Pipeline:
         stages = self.review_service.format_stages(
             diff_result, entities_result, impact_result
         )
-        logger.info(f"[4/7] Formatting stages: {len(stages)} stages created")
+        if self.config.max_stages > 0 and len(stages) > self.config.max_stages:
+            logger.info(
+                f"[4/7] Formatting stages: {len(stages)} stages created, limited to {self.config.max_stages}"
+            )
+            stages = stages[: self.config.max_stages]
+        else:
+            logger.info(f"[4/7] Formatting stages: {len(stages)} stages created")
 
         # Шаг 5: Создаём промпты
         prompts = self.review_service.format_prompts(

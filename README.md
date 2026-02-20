@@ -57,6 +57,7 @@ LLM_API_KEY=sk-...                        # API ключ
 # Опциональные
 PROMPT_BUDGET_CHARS=50000                        # Бюджет символов на промпт
 FINALIZE_BATCH_SIZE=4                            # Размер батча для финализации
+MAX_STAGES=0                                     # Максимум stages (0 = без лимита)
 LLM_PRICE_PER_MILLION_INPUT_TOKENS=0.150        # Цена за 1M input токенов
 LLM_PRICE_PER_MILLION_OUTPUT_TOKENS=0.600       # Цена за 1M output токенов
 ```
